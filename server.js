@@ -3,9 +3,7 @@ const { McpServer } = require("@modelcontextprotocol/sdk/server/mcp.js");
 const { StreamableHTTPServerTransport } = require("@modelcontextprotocol/sdk/server/streamableHttp.js");
 const { z } = require("zod");
 
-const STEL_API_KEY = "x0Uw2muYvHJAiOMfFtXkG7aR36eQCcBIURCHTs0B
-";
-
+const STEL_API_KEY = "x0Uw2muYvHJAiOMfFtXkG7aR36eQCcBIURCHTs0B";
 function createServer() {
   const server = new McpServer({ name: "stelorder-mcp", version: "1.0.0" });
 
