@@ -13,7 +13,7 @@ function createServer() {
     "Lista las facturas de venta pendientes de cobro en STEL Order",
     {},
     async () => {
-      const res = await fetch("https://app.stelorder.com/app/ordinaryInvoices?paid=false&APIKEY=" + STEL_API_KEY);
+      const res = await fetch("https://app.stelorder.com/app/ordinaryInvoices?APIKEY=" + STEL_API_KEY);
       const data = await res.text();
       return { content: [{ type: "text", text: data }] };
     }
