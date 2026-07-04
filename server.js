@@ -4,6 +4,7 @@ const { StreamableHTTPServerTransport } = require("@modelcontextprotocol/sdk/ser
 const { z } = require("zod");
 
 const STEL_API_KEY = "x0Uw2muYvHJAiOMfFtXkG7aR36eQCcBIURCHTs0B";
+
 function createServer() {
   const server = new McpServer({ name: "stelorder-mcp", version: "1.0.0" });
 
@@ -12,9 +13,7 @@ function createServer() {
     "Lista las facturas de venta pendientes de cobro en STEL Order",
     {},
     async () => {
-      const res = await fetch("https://app.stelorder.com/app/ws/invoicing/sales_invoices?paid=false", {
-        headers: { "Authorization": "Bearer " + STEL_API_KEY }
-      });
+      const res = await fetch("https://app.stelorder.com/app/ordinaryInvoices?paid=false&APIKEY=" + STEL_API_KEY);
       const data = await res.text();
       return { content: [{ type: "text", text: data }] };
     }
